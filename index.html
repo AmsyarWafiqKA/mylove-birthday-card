@@ -130,10 +130,10 @@ Happy birthday, my love. I hope I can keep giving you reasons to smile. ♡</div
 
       <article class="card">
         <div class="music-row">
-          <div class="music-copy"><strong>A little background music ♫</strong>Tap play to start your song. Add your own audio file as <em>music.mp3</em> in the project folder.</div>
+          <div class="music-copy"><strong>A Thousand Years ♫</strong>Now playing your special song.</div>
           <button class="music-btn" id="musicBtn" aria-label="Play or pause music">▶</button>
         </div>
-        <audio id="music" src="music.mp3" preload="none" loop></audio>
+        <audio id="music" src="music.mp3" preload="auto" loop></audio>
         <p id="musicStatus" class="hint" style="color:#9a6978;margin-bottom:0">Music is optional — add music.mp3 to enable it.</p>
       </article>
 
@@ -154,13 +154,22 @@ Happy birthday, my love. I hope I can keep giving you reasons to smile. ♡</div
     const musicBtn = document.getElementById('musicBtn');
     const musicStatus = document.getElementById('musicStatus');
 
-    openBtn.addEventListener('click', () => {
+    openBtn.addEventListener('click', async () => {
       surprise.classList.remove('hidden');
       surprise.classList.add('reveal');
       openBtn.textContent = 'Your surprise is open ♡';
       openBtn.disabled = true;
       surprise.scrollIntoView({ behavior: 'smooth', block: 'start' });
       for (let i = 0; i < 14; i++) setTimeout(createHeart, i * 100);
+
+      // Auto-play the music safely after user interaction
+      try {
+        await music.play();
+        musicBtn.textContent = 'Ⅱ';
+        musicStatus.textContent = 'Playing A Thousand Years ♡';
+      } catch (e) {
+        musicStatus.textContent = 'Add a valid music.mp3 file to the project folder first.';
+      }
     });
 
     function createHeart() {
@@ -180,7 +189,7 @@ Happy birthday, my love. I hope I can keep giving you reasons to smile. ♡</div
         try {
           await music.play();
           musicBtn.textContent = 'Ⅱ';
-          musicStatus.textContent = 'Playing your song ♡';
+          musicStatus.textContent = 'Playing A Thousand Years ♡';
         } catch (e) {
           musicStatus.textContent = 'Add a valid music.mp3 file to the project folder first.';
         }
