@@ -1,4 +1,124 @@
-<article class="card">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#641f35">
+  <meta name="description" content="A little birthday surprise made with love.">
+  <title>Happy Birthday, My Love ♡</title>
+  <style>
+    :root {
+      --wine: #641f35;
+      --wine-deep: #35101f;
+      --rose: #d98d9f;
+      --blush: #f7e5e5;
+      --cream: #fff8f0;
+      --ink: #462632;
+      --gold: #d6b579;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--wine-deep); }
+    body {
+      margin: 0; color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(217,141,159,.22), transparent 28rem),
+        linear-gradient(160deg, #32101f, #641f35 55%, #411426);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(100% - 28px, 560px); margin: 0 auto; padding: 26px 0 44px; position: relative; z-index: 1; }
+    .eyebrow { color: #f0cbd2; text-transform: uppercase; letter-spacing: .22em; font-size: .7rem; text-align: center; }
+    .hero {
+      min-height: 84svh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; color: var(--cream); padding: 22px 10px 40px;
+    }
+    .moon { font-size: 2.1rem; margin-bottom: 18px; animation: glow 3s ease-in-out infinite; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { font-size: clamp(2.8rem, 12vw, 4.7rem); line-height: .98; margin: 18px 0; letter-spacing: -.045em; }
+    h1 em { display: block; font-weight: 400; color: #efb8c5; }
+    .hero p { color: #f5dfe3; line-height: 1.75; max-width: 330px; margin: 8px auto 26px; font-size: .98rem; }
+    .btn {
+      border: 0; border-radius: 999px; padding: 15px 23px; min-height: 50px;
+      background: var(--cream); color: var(--wine); font-weight: 650; cursor: pointer;
+      box-shadow: 0 9px 28px #21071155; transition: transform .2s ease, opacity .2s ease;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-outline { color: var(--cream); background: transparent; border: 1px solid #eec7d1a6; box-shadow: none; }
+    .hint { color: #e9c5ce; font-size: .78rem; margin-top: 14px; }
+    .card {
+      background: var(--cream); border: 1px solid #f1d9d6; border-radius: 24px;
+      padding: 27px 22px; margin: 0 0 18px; box-shadow: 0 20px 55px #1b07122b;
+    }
+    .section-tag { color: #a75d72; font-size: .68rem; letter-spacing: .19em; text-transform: uppercase; text-align: center; }
+    h2 { color: var(--wine); font-size: clamp(1.9rem, 8vw, 2.6rem); text-align: center; line-height: 1.1; margin: 12px 0 18px; }
+    .letter { font-family: Georgia, "Times New Roman", serif; font-size: 1.04rem; line-height: 1.9; white-space: pre-line; }
+    .signature { color: var(--wine); font-family: Georgia, serif; font-style: italic; font-size: 1.35rem; margin-top: 20px; }
+    .memory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    .photo {
+      min-height: 150px; border-radius: 15px; overflow: hidden; background: #f2dadd;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      color: #98556a; font-size: .85rem; padding: 12px; border: 1px dashed #d7a4b1;
+    }
+    .photo img { width: 100%; height: 100%; min-height: 150px; object-fit: cover; display: block; }
+    .memory-note { color: #805765; text-align: center; line-height: 1.65; font-size: .9rem; margin-bottom: 0; }
+    .music-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .music-copy { font-size: .9rem; line-height: 1.5; }
+    .music-copy strong { display: block; color: var(--wine); }
+    .music-btn { flex: 0 0 auto; border: 1px solid #dfb7c0; background: #f8e7e8; color: var(--wine); border-radius: 50%; width: 52px; height: 52px; font-size: 1.2rem; cursor: pointer; }
+    .finale { color: var(--cream); text-align: center; padding: 25px 12px 16px; }
+    .finale h2 { color: #f1bdca; margin-bottom: 10px; }
+    .finale p { line-height: 1.8; color: #f6dfe4; }
+    .tiny { font-size: .74rem; color: #e8bdc8; margin-top: 25px; }
+    .finale { padding: 30px 14px 10px; }
+    .finale .heart { font-size: 2.1rem; color: #f1bdca; animation: finalePulse 2.5s ease-in-out infinite; }
+    .finale h2 { color: #f1bdca; margin: 14px 0; }
+    .finale p { max-width: 360px; margin: 0 auto; color: #efd9e0; line-height: 1.85; font-size: .94rem; }
+    .forever { color: var(--gold) !important; font-family: Georgia, serif; font-style: italic; margin-top: 14px !important; }
+    .footer { text-align: center; color: #b98b9a; font-size: .68rem; letter-spacing: .08em; margin-top: 28px; }
+    @keyframes finalePulse { 50% { transform: scale(1.1); text-shadow: 0 0 18px #e4a8ba; } }
+    .hidden { display: none; }
+    .reveal { animation: rise .8s both; }
+    .float-heart { position: fixed; bottom: -35px; z-index: 0; pointer-events: none; animation: floatUp linear forwards; opacity: .75; }
+    @keyframes floatUp { to { transform: translateY(-115vh) rotate(22deg); opacity: 0; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes glow { 50% { transform: scale(1.12); filter: drop-shadow(0 0 12px #f5b9ca); } }
+    @media (min-width: 560px) { .wrap { padding-top: 34px; } .card { padding: 34px; } .hero { min-height: 78vh; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="moon" aria-hidden="true">♡</div>
+      <div class="eyebrow">A little something, just for you</div>
+      <h1>Happy Birthday,<em>My Love.</em></h1>
+      <p>Today is all about celebrating the beautiful person you are — and how lucky I feel to have you in my life.</p>
+      <button class="btn" id="openBtn">Open your surprise ♡</button>
+      <div class="hint">Made with love, especially for you</div>
+    </section>
+
+    <section id="surprise" class="hidden">
+      <article class="card reveal">
+        <div class="section-tag">A letter from my heart</div>
+        <h2>To my favourite person</h2>
+        <div class="letter" id="letterText">Happy birthday, sayang. ♡
+
+I hope this new chapter brings you peace, happiness, good health, and all the little things that make your heart feel full.
+
+Thank you for being you — for your smile, your warmth, and the memories that mean more to me than words can explain. You deserve to feel loved, appreciated, and celebrated, not only today but every day.
+
+No matter how busy life gets, I hope you always remember that you are someone truly special to me. I will keep cheering for you, praying for your happiness, and wishing beautiful things for your future.
+
+May this year be gentle with your heart and bring you closer to every dream you hold.
+
+Happy birthday, my love. I hope I can keep giving you reasons to smile. ♡</div>
+        <div class="signature">With all my love, always ♡</div>
+      </article>
+
+      <article class="card">
         <div class="section-tag">Little moments, big feelings</div>
         <h2>Our memories</h2>
         <p class="memory-note">Replace these spaces with your favourite photos together. Keep the image files in the <strong>images</strong> folder and name them photo1.jpg through photo6.jpg.</p>
@@ -11,3 +131,78 @@
           <div class="photo"><img src="images/photo6.jpg" alt="Beautiful memory" onerror="this.style.display='none'; this.parentElement.textContent='♡ Add photo 6 in images/photo6.jpg';"></div>
         </div>
       </article>
+
+      <article class="card">
+        <div class="music-row">
+          <div class="music-copy"><strong>A Thousand Years ♫</strong>Now playing your special song.</div>
+          <button class="music-btn" id="musicBtn" aria-label="Play or pause music">▶</button>
+        </div>
+        <audio id="music" src="music.mp3" preload="auto" loop></audio>
+        <p id="musicStatus" class="hint" style="color:#9a6978;margin-bottom:0">Music is optional — add music.mp3 to enable it.</p>
+      </article>
+
+      <section class="finale reveal">
+        <div class="heart" aria-hidden="true">♡</div>
+        <h2>One last wish</h2>
+        <p>I hope this little surprise makes you smile. You deserve a birthday filled with warmth, love, and all the happiness your heart can hold.</p>
+        <p class="forever">Happy birthday, Sayang. You are loved more than this little page could ever say. ♡</p>
+        <div class="footer">A SMALL PAGE, WITH A WHOLE LOT OF LOVE</div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const openBtn = document.getElementById('openBtn');
+    const surprise = document.getElementById('surprise');
+    const music = document.getElementById('music');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicStatus = document.getElementById('musicStatus');
+
+    openBtn.addEventListener('click', async () => {
+      surprise.classList.remove('hidden');
+      surprise.classList.add('reveal');
+      openBtn.textContent = 'Your surprise is open ♡';
+      openBtn.disabled = true;
+      surprise.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      for (let i = 0; i < 14; i++) setTimeout(createHeart, i * 100);
+
+      // Auto-play the music safely after user interaction
+      try {
+        await music.play();
+        musicBtn.textContent = 'Ⅱ';
+        musicStatus.textContent = 'Playing A Thousand Years ♡';
+      } catch (e) {
+        musicStatus.textContent = 'Add a valid music.mp3 file to the project folder first.';
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('span');
+      heart.className = 'float-heart';
+      heart.textContent = ['♡', '♥', '✧'][Math.floor(Math.random() * 3)];
+      heart.style.left = (Math.random() * 94) + 'vw';
+      heart.style.fontSize = (16 + Math.random() * 20) + 'px';
+      heart.style.color = ['#f4c4d0', '#e9a1b5', '#fff0e4'][Math.floor(Math.random() * 3)];
+      heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8500);
+    }
+
+    musicBtn.addEventListener('click', async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicBtn.textContent = 'Ⅱ';
+          musicStatus.textContent = 'Playing A Thousand Years ♡';
+        } catch (e) {
+          musicStatus.textContent = 'Add a valid music.mp3 file to the project folder first.';
+        }
+      } else {
+        music.pause();
+        musicBtn.textContent = '▶';
+        musicStatus.textContent = 'Music paused.';
+      }
+    });
+  </script>
+</body>
+</html>
